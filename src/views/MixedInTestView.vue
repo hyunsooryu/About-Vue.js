@@ -26,10 +26,15 @@
 <script>
 
 import PageTitle from '../components/PageTitle'
-import axios from 'axios';
+import ApiMixin from '../api.js'
 import ChildComponentView from './ChildComponentView';
 
+
 export default {
+    //믹스인 -> 믹스시키는 것입니다. - 섞어넣어서 사용해라 - 동일한 영역으로 믹스인 한 코드가 해당 코드가 들어가집니다.
+    //메소드안에 믹스인으로 정의한 함수가 생겨버립니다.
+    //믹스인에도 똑같이 mounted 와 같은 것들을 사용할 수있다.
+    mixins : [ApiMixin], //mounted, unmounted 와 같은 코드도 mixins 이 가능 - aop 와 같은 기능이 가능
     name : 'ServerDataView',
     components : {
         'page-title' : PageTitle,
@@ -83,21 +88,10 @@ export default {
         },
 
         async getProductList(){
-            this.productList = await this.api("http://localhost:10010/productlist", "get", {});
-            //this.productList = this.$store.state.productList;
+            this.productList = await this.$api("http://localhost:10010/productlist", "get", {});
             console.log(this.productList);
         },
 
-        async api(url, method, data){
-                return (await axios({
-                    method : method,
-                    url : url,
-                    data : data
-                    }).catch(e=>{
-                        console.log(e);
-                      })
-                ).data;
-        }
     }
 }
 </script>

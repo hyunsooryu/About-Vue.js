@@ -41,12 +41,28 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/DataBindingHtmlView.vue')
   },
   {
+    path: '/slot',
+    name: 'SlotUseModalLayoutView',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/SlotUseModalLayoutView.vue')
+  },
+  {
     path: '/databindinginputtext',
     name: 'DataBindingInputTextView',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/DataBindingInputTextView.vue')
+  },
+  {
+    path: '/provideinject',
+    name: 'ProvideInjectView',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProvideInjectView.vue')
   },
   {
     path: '/listrendering',
@@ -79,6 +95,22 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/ClassAndStyleView.vue')
+  },
+  {
+    path: '/mixin',
+    name: 'MixedInTestView',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/MixedInTestView.vue')
+  },
+  {
+    path: '/storeaccess',
+    name: 'StoreAccess',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/StoreAccess.vue')
   },
   {
     path: '/serverdata',
